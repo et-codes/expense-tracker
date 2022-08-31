@@ -1,31 +1,46 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+import ExpenseFormItem from './ExpenseFormItem';
 
 class ExpenseForm extends Component {
   render() {
     return (
-      <Form>
-        <Form.Group className="mb-3">
-          <Form.Label>Description</Form.Label>
-          <Form.Control type="text" placeholder="What did you buy?" />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Place purchased</Form.Label>
-          <Form.Control type="text" placeholder="Where did you buy it?" />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Date purchased</Form.Label>
-          <Form.Control type="date" />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Amount</Form.Label>
-          <InputGroup className="mb-3">
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control placeholder="What did it cost?" />
-          </InputGroup>
-        </Form.Group>
+      <Form className="border rounded bg-light p-3">
+        <Row>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Description"
+              type="text"
+              placeholder="What did you buy?"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Place purchased"
+              type="text"
+              placeholder="Where did you buy it?"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Date purchased"
+              type="date"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Expense amount"
+              type="currency"
+              placeholder="What did it cost?"
+            />
+          </Col>
+        </Row>
+        <Col className="text-center">
+          <Button type="submit">Add Expense</Button>
+        </Col>
       </Form>
     );
   }

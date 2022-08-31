@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Header from './components/Header';
 import ExpenseForm from './components/ExpenseForm';
+import ExpenseTable from './components/ExpenseTable';
 
 class App extends Component {
   render() {
@@ -9,13 +10,9 @@ class App extends Component {
       <Container className="p-3">
         <Header />
         <ExpenseForm />
-        <ul>
-          <li>Form</li>
-          <li>- FormItem</li>
-          <li>ExpenseTable</li>
-          <li>- Expense</li>
-          <li>Footer</li>
-        </ul>
+        <div className="mt-3">
+          <ExpenseTable />
+        </div>
       </Container>
     );
   }
