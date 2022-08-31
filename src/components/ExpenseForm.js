@@ -10,25 +10,33 @@ class ExpenseForm extends Component {
     return (
       <Form className="border rounded bg-light p-3">
         <Row>
-          <ExpenseFormItem
-            label="Description"
-            type="text"
-            placeholder="What did you spend?"
-          />
-          <ExpenseFormItem
-            label="Place purchased"
-            type="text"
-            placeholder="Where did you spend it?"
-          />
-          <ExpenseFormItem
-            label="Date purchased"
-            type="date"
-          />
-          <ExpenseFormItem
-            label="Expense amount"
-            type="currency"
-            placeholder="What did it cost?"
-          />
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Description"
+              type="text"
+              placeholder="What did you buy?"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Place purchased"
+              type="text"
+              placeholder="Where did you buy it?"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Date purchased"
+              type="date"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Expense amount"
+              type="currency"
+              placeholder="What did it cost?"
+            />
+          </Col>
         </Row>
         <Col className="text-center">
           <Button type="submit">Add Expense</Button>
