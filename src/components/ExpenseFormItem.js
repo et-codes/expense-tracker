@@ -4,19 +4,19 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 class ExpenseFormItem extends Component {
   render() {
-    const { label, type, placeholder } = { ...this.props };
+    const { label, type, placeholder, handleChange } = { ...this.props };
     let contents;
 
     if (type === 'currency') {
       contents = (
         <InputGroup className="mb-3">
           <InputGroup.Text>$</InputGroup.Text>
-          <Form.Control placeholder={placeholder} />
+          <Form.Control placeholder={placeholder} onChange={handleChange} />
         </InputGroup>
       );
     } else {
       contents = (
-        <Form.Control type={type} placeholder={placeholder} />
+        <Form.Control type={type} placeholder={placeholder} onChange={handleChange} />
       );
     }
 
