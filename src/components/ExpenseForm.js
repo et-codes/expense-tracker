@@ -12,6 +12,19 @@ class ExpenseForm extends Component {
         <Row>
           <Col md={6}>
             <ExpenseFormItem
+              label="Date"
+              type="date"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
+              label="Location"
+              type="text"
+              placeholder="Where did you buy it?"
+            />
+          </Col>
+          <Col md={6}>
+            <ExpenseFormItem
               label="Description"
               type="text"
               placeholder="What did you buy?"
@@ -19,28 +32,15 @@ class ExpenseForm extends Component {
           </Col>
           <Col md={6}>
             <ExpenseFormItem
-              label="Place purchased"
-              type="text"
-              placeholder="Where did you buy it?"
-            />
-          </Col>
-          <Col md={6}>
-            <ExpenseFormItem
-              label="Date purchased"
-              type="date"
-            />
-          </Col>
-          <Col md={6}>
-            <ExpenseFormItem
-              label="Expense amount"
+              label="Amount"
               type="currency"
               placeholder="What did it cost?"
             />
           </Col>
+          <Col className="text-end">
+            <Button type="submit" >Add Expense</Button>
+          </Col>
         </Row>
-        <Col className="text-center">
-          <Button type="submit">Add Expense</Button>
-        </Col>
       </Form>
     );
   }

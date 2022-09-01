@@ -7,9 +7,9 @@ class ExpenseItem extends Component {
     return (
       <tr>
         <td>{date}</td>
-        <td>{description}</td>
         <td>{location}</td>
-        <td className="text-danger">{amount}</td>
+        <td>{description}</td>
+        <td className="text-danger text-end">{amount}</td>
       </tr>
     );
   }

@@ -16,6 +16,12 @@ class ExpenseTable extends Component {
         description: 'Light bulbs',
         location: 'Lowe\'s',
         amount: '$12.65'
+      },
+      {
+        date: '8/15/22',
+        description: 'Booze',
+        location: 'Gas station',
+        amount: '$4520.63'
       }
     ];
 
@@ -28,10 +34,10 @@ class ExpenseTable extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Description</th>
+            <th style={{ width: '15%' }}>Date</th>
             <th>Location</th>
-            <th>Amount</th>
+            <th>Description</th>
+            <th className="text-end">Amount</th>
           </tr>
         </thead>
         <tbody>
