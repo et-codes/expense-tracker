@@ -4,26 +4,7 @@ import ExpenseItem from './ExpenseItem';
 
 class ExpenseTable extends Component {
   render() {
-    const expenses = [
-      {
-        date: '8/9/22',
-        description: 'Groceries',
-        location: 'Wal-Mart',
-        amount: '$101.43'
-      },
-      {
-        date: '8/12/22',
-        description: 'Light bulbs',
-        location: 'Lowe\'s',
-        amount: '$12.65'
-      },
-      {
-        date: '8/15/22',
-        description: 'Booze',
-        location: 'Gas station',
-        amount: '$4520.63'
-      }
-    ];
+    const expenses = this.props.expenses;
 
     const expensesToDisplay = [];
     for (let i = 0; i < expenses.length; i++) {

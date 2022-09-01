@@ -12,15 +12,25 @@ class App extends Component {
       expenses: [],
       total: 0
     }
+    this.addExpense = this.addExpense.bind(this);
+  }
+
+  addExpense(expense) {
+    const updatedExpenses = [...this.state.expenses, expense];
+    const updatedTotal = this.state.total + parseFloat(expense.amount);
+    this.setState({
+      expenses: updatedExpenses,
+      total: updatedTotal
+    });
   }
 
   render() {
     return (
       <Container className="p-3">
         <Header total={this.state.total} />
-        <ExpenseForm />
+        <ExpenseForm handleSubmit={this.addExpense} />
         <div className="mt-3">
-          <ExpenseTable />
+          <ExpenseTable expenses={this.state.expenses} />
         </div>
       </Container>
     );

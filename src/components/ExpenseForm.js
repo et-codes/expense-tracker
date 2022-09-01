@@ -12,7 +12,7 @@ class ExpenseForm extends Component {
       date: '',
       location: '',
       description: '',
-      amount: 0
+      amount: ''
     }
     this.addExpense = this.addExpense.bind(this);
     this.changeDate = this.changeDate.bind(this);
@@ -38,8 +38,14 @@ class ExpenseForm extends Component {
   }
 
   addExpense(e) {
-    console.log(this.state);
     e.preventDefault();
+    this.props.handleSubmit(this.state);
+    this.setState({
+      date: '',
+      location: '',
+      description: '',
+      amount: ''
+    });
   }
 
   render() {
@@ -51,6 +57,7 @@ class ExpenseForm extends Component {
               label="Date"
               type="date"
               handleChange={this.changeDate}
+              value={this.state.date}
             />
           </Col>
           <Col md={6}>
@@ -59,6 +66,7 @@ class ExpenseForm extends Component {
               type="text"
               placeholder="Where did you buy it?"
               handleChange={this.changeLocation}
+              value={this.state.location}
             />
           </Col>
           <Col md={6}>
@@ -67,6 +75,7 @@ class ExpenseForm extends Component {
               type="text"
               placeholder="What did you buy?"
               handleChange={this.changeDescription}
+              value={this.state.description}
             />
           </Col>
           <Col md={6}>
@@ -75,6 +84,7 @@ class ExpenseForm extends Component {
               type="currency"
               placeholder="What did it cost?"
               handleChange={this.changeAmount}
+              value={this.state.amount}
             />
           </Col>
           <Col className="text-end">
