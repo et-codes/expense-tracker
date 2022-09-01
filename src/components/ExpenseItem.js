@@ -6,7 +6,7 @@ class ExpenseItem extends Component {
 
     return (
       <tr>
-        <td>{date}</td>
+        <td className="text-center">{date}</td>
         <td>{location}</td>
         <td>{description}</td>
         <td className="text-danger text-end">{amount}</td>

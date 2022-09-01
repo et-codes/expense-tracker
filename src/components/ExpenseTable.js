@@ -34,14 +34,14 @@ class ExpenseTable extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th style={{ width: '15%' }}>Date</th>
+            <th className="text-center">Date</th>
             <th>Location</th>
             <th>Description</th>
             <th className="text-end">Amount</th>
           </tr>
         </thead>
         <tbody>
-          {[...expensesToDisplay]}
+          {expensesToDisplay}
         </tbody>
       </Table>
     );

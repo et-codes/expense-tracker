@@ -6,9 +6,20 @@ import Row from 'react-bootstrap/Row';
 import ExpenseFormItem from './ExpenseFormItem';
 
 class ExpenseForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { expenses: [] };
+    this.addExpense = this.addExpense.bind(this);
+  }
+
+  addExpense(e) {
+    console.log('Expense submitted');
+    e.preventDefault();
+  }
+
   render() {
     return (
-      <Form className="border rounded bg-light p-3">
+      <Form className="border rounded bg-light p-3" onSubmit={this.addExpense}>
         <Row>
           <Col md={6}>
             <ExpenseFormItem

@@ -5,10 +5,19 @@ import ExpenseForm from './components/ExpenseForm';
 import ExpenseTable from './components/ExpenseTable';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      expenses: [],
+      total: 0
+    }
+  }
+
   render() {
     return (
       <Container className="p-3">
-        <Header />
+        <Header total={this.state.total} />
         <ExpenseForm />
         <div className="mt-3">
           <ExpenseTable />
