@@ -1,3 +1,12 @@
-Check string lengths on Location and Description before displaying
+Check string lengths on Location and Description before displaying - truncate to fit window
+  use window.innerWidth to get window size?  And scale from there?
+  14 sm (576)
+  24 md (786)
+  32 lg (992)
+  48 xl (1200)
+  56 xxl (1400)
 
 Fix currency display format to 2 decimal places
+
+Deletion
+

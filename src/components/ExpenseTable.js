@@ -12,7 +12,7 @@ class ExpenseTable extends Component {
     }
 
     return (
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive="sm">
         <thead>
           <tr>
             <th className="text-center">Date</th>
