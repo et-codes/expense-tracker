@@ -13,6 +13,7 @@ class ExpenseFormItem extends Component {
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
             type="number"
+            step="any"
             placeholder={placeholder}
             onChange={handleChange}
             value={value}

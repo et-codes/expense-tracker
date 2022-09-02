@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ExpenseItem extends Component {
   render() {
     const { date, description, location, amount } = { ...this.props.expense };
-    const dateString = new Date(date).toLocaleDateString();
+    const dateString = new Date(date.replace('-', '/')).toLocaleDateString();
 
     return (
       <tr>

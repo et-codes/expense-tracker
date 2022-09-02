@@ -10,7 +10,7 @@ class ExpenseForm extends Component {
     super(props);
     this.state = {
       expense: {
-        date: new Date().toLocaleDateString('en-CA'),
+        date: '',
         location: '',
         description: '',
         amount: ''
@@ -48,7 +48,7 @@ class ExpenseForm extends Component {
       this.props.handleSubmit(newExpense);
       this.setState({
         expense: {
-          date: new Date().toLocaleDateString('en-CA'),
+          date: '',
           location: '',
           description: '',
           amount: ''
@@ -62,13 +62,12 @@ class ExpenseForm extends Component {
   }
 
   validateExpense() {
-    const newDate = new Date(this.state.expense.date).toLocaleDateString();
     const newAmount = Number(this.state.expense.amount);
 
     // The amount is the only field that can fail validation, if it cannot be converted to a #
     if (newAmount) {
       const newExpense = {
-        date: newDate,
+        date: this.state.expense.date,
         location: this.state.expense.location,
         description: this.state.expense.description,
         amount: newAmount
