@@ -26,19 +26,31 @@ class ExpenseForm extends Component {
   };
 
   changeDate(e) {
-    this.setState({ ...this.state, expense: { ...this.state.expense, date: e.target.value } });
+    this.setState({
+      ...this.state,
+      expense: { ...this.state.expense, date: e.target.value }
+    });
   }
 
   changeLocation(e) {
-    this.setState({ ...this.state, expense: { ...this.state.expense, location: e.target.value } });
+    this.setState({
+      ...this.state,
+      expense: { ...this.state.expense, location: e.target.value }
+    });
   }
 
   changeDescription(e) {
-    this.setState({ ...this.state, expense: { ...this.state.expense, description: e.target.value } });
+    this.setState({
+      ...this.state,
+      expense: { ...this.state.expense, description: e.target.value }
+    });
   }
 
   changeAmount(e) {
-    this.setState({ ...this.state, expense: { ...this.state.expense, amount: e.target.value } });
+    this.setState({
+      ...this.state,
+      expense: { ...this.state.expense, amount: e.target.value }
+    });
   }
 
   addExpense(e) {
