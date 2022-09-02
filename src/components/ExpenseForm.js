@@ -9,43 +9,73 @@ class ExpenseForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: '',
-      location: '',
-      description: '',
-      amount: ''
-    }
+      expense: {
+        date: new Date().toLocaleDateString('en-CA'),
+        location: '',
+        description: '',
+        amount: ''
+      },
+      valid: true
+    };
     this.addExpense = this.addExpense.bind(this);
     this.changeDate = this.changeDate.bind(this);
     this.changeLocation = this.changeLocation.bind(this);
     this.changeDescription = this.changeDescription.bind(this);
     this.changeAmount = this.changeAmount.bind(this);
+    this.validateExpense = this.validateExpense.bind(this);
   };
 
   changeDate(e) {
-    this.setState({ ...this.state, date: e.target.value });
+    this.setState({ ...this.state, expense: { ...this.state.expense, date: e.target.value } });
   }
 
   changeLocation(e) {
-    this.setState({ ...this.state, location: e.target.value });
+    this.setState({ ...this.state, expense: { ...this.state.expense, location: e.target.value } });
   }
 
   changeDescription(e) {
-    this.setState({ ...this.state, description: e.target.value });
+    this.setState({ ...this.state, expense: { ...this.state.expense, description: e.target.value } });
   }
 
   changeAmount(e) {
-    this.setState({ ...this.state, amount: e.target.value });
+    this.setState({ ...this.state, expense: { ...this.state.expense, amount: e.target.value } });
   }
 
   addExpense(e) {
     e.preventDefault();
-    this.props.handleSubmit(this.state);
-    this.setState({
-      date: '',
-      location: '',
-      description: '',
-      amount: ''
-    });
+    const newExpense = this.validateExpense();
+    if (newExpense) {
+      this.props.handleSubmit(newExpense);
+      this.setState({
+        expense: {
+          date: new Date().toLocaleDateString('en-CA'),
+          location: '',
+          description: '',
+          amount: ''
+        },
+        valid: true
+      });
+    } else {
+      this.setState({ ...this.state, valid: false });
+      console.log('failed validation');
+    }
+  }
+
+  validateExpense() {
+    const newDate = new Date(this.state.expense.date).toLocaleDateString();
+    const newAmount = Number(this.state.expense.amount);
+
+    // The amount is the only field that can fail validation, if it cannot be converted to a #
+    if (newAmount) {
+      const newExpense = {
+        date: newDate,
+        location: this.state.expense.location,
+        description: this.state.expense.description,
+        amount: newAmount
+      }
+      return newExpense;
+    }
+    return false;
   }
 
   render() {
@@ -57,7 +87,7 @@ class ExpenseForm extends Component {
               label="Date"
               type="date"
               handleChange={this.changeDate}
-              value={this.state.date}
+              value={this.state.expense.date}
             />
           </Col>
           <Col md={6}>
@@ -66,7 +96,7 @@ class ExpenseForm extends Component {
               type="text"
               placeholder="Where did you buy it?"
               handleChange={this.changeLocation}
-              value={this.state.location}
+              value={this.state.expense.location}
             />
           </Col>
           <Col md={6}>
@@ -75,7 +105,7 @@ class ExpenseForm extends Component {
               type="text"
               placeholder="What did you buy?"
               handleChange={this.changeDescription}
-              value={this.state.description}
+              value={this.state.expense.description}
             />
           </Col>
           <Col md={6}>
@@ -84,7 +114,8 @@ class ExpenseForm extends Component {
               type="currency"
               placeholder="What did it cost?"
               handleChange={this.changeAmount}
-              value={this.state.amount}
+              value={this.state.expense.amount}
+              valid={this.state.valid}
             />
           </Col>
           <Col className="text-end">

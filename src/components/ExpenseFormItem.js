@@ -4,14 +4,24 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 class ExpenseFormItem extends Component {
   render() {
-    const { label, type, placeholder, handleChange, value } = { ...this.props };
+    const { label, type, placeholder, handleChange, value, valid } = { ...this.props };
     let contents;
 
     if (type === 'currency') {
       contents = (
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-3" hasValidation>
           <InputGroup.Text>$</InputGroup.Text>
-          <Form.Control placeholder={placeholder} onChange={handleChange} value={value} />
+          <Form.Control
+            type="number"
+            placeholder={placeholder}
+            onChange={handleChange}
+            value={value}
+            required
+            isInvalid={!valid}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please enter a valid number.
+          </Form.Control.Feedback>
         </InputGroup>
       );
     } else {

@@ -17,7 +17,7 @@ class App extends Component {
 
   addExpense(expense) {
     const updatedExpenses = [...this.state.expenses, expense];
-    const updatedTotal = this.state.total + parseFloat(expense.amount);
+    const updatedTotal = this.state.total + expense.amount;
     this.setState({
       expenses: updatedExpenses,
       total: updatedTotal
