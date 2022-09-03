@@ -13,6 +13,7 @@ class App extends Component {
       total: 0
     }
     this.addExpense = this.addExpense.bind(this);
+    this.removeExpense = this.removeExpense.bind(this);
   }
 
   addExpense(expense) {
@@ -24,13 +25,26 @@ class App extends Component {
     });
   }
 
+  removeExpense(id) {
+    const expenseToRemove = this.state.expenses.find(expense => expense.id === id);
+    const newExpenses = this.state.expenses.filter(expense => expense.id !== id);
+    const newTotal = this.state.total - expenseToRemove.amount;
+    this.setState({
+      expenses: newExpenses,
+      total: newTotal
+    });
+  }
+
   render() {
     return (
       <Container className="p-3">
         <Header total={this.state.total} />
         <ExpenseForm handleSubmit={this.addExpense} />
         <div className="mt-3">
-          <ExpenseTable expenses={this.state.expenses} />
+          <ExpenseTable
+            expenses={this.state.expenses}
+            handleRemove={this.removeExpense}
+          />
         </div>
       </Container>
     );

@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import '../styles/ExpenseItem.css';
 
 class ExpenseItem extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.handleRemove(this.props.expense.id);
+  }
+
   render() {
     const { date, description, location, amount } = { ...this.props.expense };
 
@@ -26,7 +35,11 @@ class ExpenseItem extends Component {
         <td className="text-truncate truncate">{description}</td>
         <td className="text-danger text-end">{amountString}</td>
         <td style={imgStyle}>
-          <img src={require('../assets/remove.png')} alt="trash icon" />
+          <img
+            src={require('../assets/remove.png')}
+            alt="trash icon"
+            onClick={this.handleClick}
+          />
         </td>
       </tr >
     );

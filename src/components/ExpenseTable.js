@@ -3,17 +3,12 @@ import Table from 'react-bootstrap/Table';
 import ExpenseItem from './ExpenseItem';
 
 class ExpenseTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { width: window.innerWidth };
-  }
-
   render() {
     const expenses = this.props.expenses;
     const expensesToDisplay = [];
     expenses.map(expense =>
       expensesToDisplay.push(
-        <ExpenseItem key={expense.id} expense={expense} />
+        <ExpenseItem key={expense.id} expense={expense} handleRemove={this.props.handleRemove} />
       )
     );
 
