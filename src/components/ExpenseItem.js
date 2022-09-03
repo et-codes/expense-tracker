@@ -23,17 +23,13 @@ class ExpenseItem extends Component {
     });
     const amountString = formatter.format(amount);
 
-    const imgStyle = {
-      textAlign: 'center'
-    };
-
     return (
       <tr>
         <td className="text-center">{dateString}</td>
-        <td className="text-truncate truncate" data-tip={location}>{location}</td>
+        <td className="text-truncate truncate d-none d-sm-block">{location}</td>
         <td className="text-truncate truncate">{description}</td>
         <td className="text-danger text-end">{amountString}</td>
-        <td style={imgStyle}>
+        <td className="delete-column">
           <img
             src={require('../assets/remove.png')}
             alt="trash icon"

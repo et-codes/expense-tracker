@@ -1,3 +1,7 @@
+.delete-column {
+  text-align: center;
+}
+
 /* X-Small */
 @media (max-width: 575.98px) {
   .truncate {

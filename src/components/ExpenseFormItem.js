@@ -33,7 +33,7 @@ class ExpenseFormItem extends Component {
 
     return (
       <Form.Group className="mb-3">
-        <Form.Label>{label}</Form.Label>
+        <Form.Label className="d-none d-sm-block">{label}</Form.Label>
         {contents}
       </Form.Group>
     );

@@ -106,7 +106,7 @@ class ExpenseForm extends Component {
             <ExpenseFormItem
               label="Location"
               type="text"
-              placeholder="Where did you buy it?"
+              placeholder="Where was the expense made?"
               handleChange={this.changeLocation}
               value={this.state.expense.location}
             />
@@ -115,7 +115,7 @@ class ExpenseForm extends Component {
             <ExpenseFormItem
               label="Description"
               type="text"
-              placeholder="What did you buy?"
+              placeholder="What was the expense for?"
               handleChange={this.changeDescription}
               value={this.state.expense.description}
             />

@@ -17,7 +17,7 @@ class ExpenseTable extends Component {
         <thead>
           <tr>
             <th className="text-center">Date</th>
-            <th>Location</th>
+            <th className="d-none d-sm-block">Location</th>
             <th>Description</th>
             <th className="text-center" colSpan={2}>Amount</th>
           </tr>
