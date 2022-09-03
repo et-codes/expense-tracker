@@ -14,6 +14,23 @@ class App extends Component {
     }
     this.addExpense = this.addExpense.bind(this);
     this.removeExpense = this.removeExpense.bind(this);
+    this.getExpenses = this.getExpenses.bind(this);
+    this.storeExpenses = this.storeExpenses.bind(this);
+  }
+
+  componentDidMount() {
+    this.getExpenses();
+  }
+
+  getExpenses() {
+    const expensesJSON = localStorage.getItem('expenses');
+    if (expensesJSON !== null) {
+      this.setState(JSON.parse(expensesJSON));
+    }
+  }
+
+  storeExpenses() {
+    localStorage.setItem('expenses', JSON.stringify(this.state));
   }
 
   addExpense(expense) {
@@ -22,7 +39,7 @@ class App extends Component {
     this.setState({
       expenses: updatedExpenses,
       total: updatedTotal
-    });
+    }, () => this.storeExpenses());
   }
 
   removeExpense(id) {
@@ -32,7 +49,7 @@ class App extends Component {
     this.setState({
       expenses: newExpenses,
       total: newTotal
-    });
+    }, () => this.storeExpenses());
   }
 
   render() {
