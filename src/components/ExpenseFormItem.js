@@ -27,7 +27,13 @@ class ExpenseFormItem extends Component {
       );
     } else {
       contents = (
-        <Form.Control type={type} placeholder={placeholder} onChange={handleChange} value={value} />
+        <Form.Control
+          type={type}
+          placeholder={placeholder}
+          onChange={handleChange}
+          value={value}
+          required
+        />
       );
     }
 
