@@ -7,7 +7,11 @@ class ExpenseTable extends Component {
     super(props);
     this.state = { width: window.innerWidth };
     this.handleResize = this.handleResize.bind(this);
+  }
+
+  componentDidMount() {
     window.addEventListener('resize', this.handleResize);
+
   }
 
   handleResize() {
