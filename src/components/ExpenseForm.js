@@ -98,6 +98,7 @@ class ExpenseForm extends Component {
             <ExpenseFormItem
               label="Date"
               type="date"
+              placeholder="When was the expense made?"
               handleChange={this.changeDate}
               value={this.state.expense.date}
             />
