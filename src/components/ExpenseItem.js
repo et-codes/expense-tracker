@@ -24,7 +24,6 @@ class ExpenseItem extends Component {
     const amountString = formatter.format(amount);
 
     const imgStyle = {
-      maxWidth: '16px',
       textAlign: 'center'
     };
 

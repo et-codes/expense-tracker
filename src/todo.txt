@@ -1,3 +1,2 @@
-Add deletion feature
 Add local storage feature
-
+Deploy to Heroku
