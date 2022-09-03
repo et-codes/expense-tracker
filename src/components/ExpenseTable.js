@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 import ExpenseItem from './ExpenseItem';
+import '../styles/table.css';
 
 class ExpenseTable extends Component {
   render() {
@@ -17,8 +18,8 @@ class ExpenseTable extends Component {
         <thead>
           <tr>
             <th className="text-center">Date</th>
-            <th className="d-none d-sm-block">Location</th>
-            <th>Description</th>
+            <th className="d-none d-sm-block truncate">Location</th>
+            <th className="truncate">Description</th>
             <th className="text-center" colSpan={2}>Amount</th>
           </tr>
         </thead>

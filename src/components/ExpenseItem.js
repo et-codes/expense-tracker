@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/ExpenseItem.css';
+import '../styles/table.css';
 
 class ExpenseItem extends Component {
   constructor(props) {
