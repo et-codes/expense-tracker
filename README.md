@@ -2,7 +2,7 @@
 
 _Keep track of your horribly impulsive spending with this handy app!_
 
-Try out the app [here.](https://et-expense-tracker/herokuapp.com)
+Try out the app [here.](https://et-expense-tracker.herokuapp.com)
 
 ## Description
 
