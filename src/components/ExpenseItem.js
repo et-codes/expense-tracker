@@ -14,7 +14,7 @@ class ExpenseItem extends Component {
   render() {
     const { date, description, location, amount } = { ...this.props.expense };
 
-    const dateString = new Date(date.replace('-', '/')).toLocaleDateString();
+    const dateString = new Date(date.replace(/-/g, '/')).toLocaleDateString();
 
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
