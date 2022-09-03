@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Header from './components/Header';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseTable from './components/ExpenseTable';
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class App extends Component {
             handleRemove={this.removeExpense}
           />
         </div>
+        <Footer />
       </Container>
     );
   }
