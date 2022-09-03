@@ -14,12 +14,20 @@ class ExpenseItem extends Component {
     });
     const amountString = formatter.format(amount);
 
+    const imgStyle = {
+      maxWidth: '16px',
+      textAlign: 'center'
+    };
+
     return (
       <tr>
         <td className="text-center">{dateString}</td>
-        <td className="text-truncate truncate">{location}</td>
+        <td className="text-truncate truncate" data-tip={location}>{location}</td>
         <td className="text-truncate truncate">{description}</td>
         <td className="text-danger text-end">{amountString}</td>
+        <td style={imgStyle}>
+          <img src={require('../assets/remove.png')} alt="trash icon" />
+        </td>
       </tr >
     );
   }

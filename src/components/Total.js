@@ -9,7 +9,7 @@ class Total extends Component {
     });
     const total = formatter.format(this.props.amount);
 
-    return <div>Total: {total}</div>;
+    return <div>Total: <span className="text-danger">{total}</span></div>;
   }
 }
 

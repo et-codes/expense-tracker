@@ -79,6 +79,7 @@ class ExpenseForm extends Component {
     // The amount is the only field that can fail validation, if it cannot be converted to a #
     if (newAmount) {
       const newExpense = {
+        id: Date.now(),
         date: this.state.expense.date,
         location: this.state.expense.location,
         description: this.state.expense.description,

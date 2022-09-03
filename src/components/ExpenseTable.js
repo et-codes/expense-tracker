@@ -10,13 +10,12 @@ class ExpenseTable extends Component {
 
   render() {
     const expenses = this.props.expenses;
-
     const expensesToDisplay = [];
-    for (let i = 0; i < expenses.length; i++) {
+    expenses.map(expense =>
       expensesToDisplay.push(
-        <ExpenseItem key={i} expense={expenses[i]} />
-      );
-    }
+        <ExpenseItem key={expense.id} expense={expense} />
+      )
+    );
 
     return (
       <Table striped bordered hover responsive="sm">
@@ -25,7 +24,7 @@ class ExpenseTable extends Component {
             <th className="text-center">Date</th>
             <th>Location</th>
             <th>Description</th>
-            <th className="text-end">Amount</th>
+            <th className="text-center" colSpan={2}>Amount</th>
           </tr>
         </thead>
         <tbody>

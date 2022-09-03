@@ -1,5 +1,3 @@
-Change resize event listener to not bounce.
-Adjust breakpoints on resize.
-
-Deletion
+Add deletion feature
+Add local storage feature
 
