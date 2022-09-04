@@ -7,7 +7,14 @@ import Footer from './Footer';
 
 const App = () => {
   const getExpenses = () => {
-    const expensesJSON = localStorage.getItem('expenses');
+    let expensesJSON = localStorage.getItem('expenses');
+
+    // Delete legacy format data
+    if (JSON.parse(expensesJSON).expenses) {
+      localStorage.clear();
+      return { expenseList: [], total: 0 };
+    }
+
     if (expensesJSON !== null) {
       return JSON.parse(expensesJSON);
     } else {
@@ -20,6 +27,7 @@ const App = () => {
   const storeExpenses = () => {
     localStorage.setItem('expenses', JSON.stringify(expenses));
   };
+
   useEffect(storeExpenses, [expenses]);
 
   const addExpense = (expense) => {
