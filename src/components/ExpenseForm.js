@@ -64,7 +64,7 @@ const ExpenseForm = (props) => {
   }
 
   return (
-    <Form className="border rounded bg-light p-3" onSubmit={this.addExpense}>
+    <Form className="border rounded bg-light p-3" onSubmit={addExpense}>
       <Row>
         <Col md={6}>
           <ExpenseFormItem

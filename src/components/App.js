@@ -40,8 +40,8 @@ const App = () => {
   }
 
   const removeExpense = (id) => {
-    const expenseToRemove = expenses.expenseList.find(expense => expense.id === id);
-    const newExpenses = expenses.expenseList.filter(expense => expense.id !== id);
+    const expenseToRemove = expenses.expenseList.find(exp => exp.id === id);
+    const newExpenses = expenses.expenseList.filter(exp => exp.id !== id);
     const newTotal = expenses.total - expenseToRemove.amount;
     setExpenses({
       expenseList: newExpenses,
