@@ -9,8 +9,8 @@ const App = () => {
   const getExpenses = () => {
     let expensesJSON = localStorage.getItem('expenses');
 
-    // Delete legacy format data
-    if (JSON.parse(expensesJSON).expenses) {
+    // Delete legacy format data if it exists
+    if (expensesJSON !== null && JSON.parse(expensesJSON).expenses) {
       localStorage.clear();
       return { expenseList: [], total: 0 };
     }
