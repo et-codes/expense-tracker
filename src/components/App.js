@@ -8,17 +8,17 @@ import Footer from './Footer';
 const App = () => {
   const getExpenses = () => {
     let expensesJSON = localStorage.getItem('expenses');
-
-    // Delete legacy format data if it exists
-    if (expensesJSON !== null && JSON.parse(expensesJSON).expenses) {
-      localStorage.clear();
-      return { expenseList: [], total: 0 };
-    }
+    const noSavedExpenses = { expenseList: [], total: 0 };
 
     if (expensesJSON !== null) {
+      // Delete legacy format data if it exists
+      if (JSON.parse(expensesJSON).expenses) {
+        localStorage.clear();
+        return noSavedExpenses;
+      }
       return JSON.parse(expensesJSON);
     } else {
-      return { expenseList: [], total: 0 };
+      return noSavedExpenses;
     }
   };
 
