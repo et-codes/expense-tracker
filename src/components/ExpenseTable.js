@@ -1,4 +1,3 @@
-import React from 'react';
 import Table from 'react-bootstrap/Table';
 import ExpenseItem from './ExpenseItem';
 import '../styles/table.css';

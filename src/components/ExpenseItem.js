@@ -2,16 +2,17 @@ import React from 'react';
 import '../styles/table.css';
 
 const ExpenseItem = (props) => {
+  const { expense, handleRemove } = { ...props };
   const {
     date,
     description,
     location,
     amount,
     id
-  } = { ...props.expense };
+  } = { ...expense };
 
   const handleClick = (e) => {
-    props.handleRemove(id);
+    handleRemove(id);
   }
 
   const dateString = new Date(date.replace(/-/g, '/')).toLocaleDateString();

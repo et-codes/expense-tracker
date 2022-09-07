@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Total = ({ amount }) => {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',

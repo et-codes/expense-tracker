@@ -1,4 +1,3 @@
-import React from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
@@ -8,8 +7,7 @@ const ExpenseFormItem = (props) => {
     type,
     placeholder,
     handleChange,
-    value,
-    valid
+    value
   } = { ...props };
   let contents;
 
@@ -24,11 +22,7 @@ const ExpenseFormItem = (props) => {
           onChange={handleChange}
           value={value}
           required
-          isInvalid={!valid}
         />
-        <Form.Control.Feedback type="invalid">
-          Please enter a valid number.
-        </Form.Control.Feedback>
       </InputGroup>
     );
   } else {

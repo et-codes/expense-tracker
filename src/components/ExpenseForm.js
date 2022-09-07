@@ -1,66 +1,58 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import ExpenseFormItem from './ExpenseFormItem';
 
-const ExpenseForm = (props) => {
+const ExpenseForm = ({ handleSubmit }) => {
   const [expense, setExpense] = useState({
     date: '',
     location: '',
     description: '',
     amount: ''
   });
-  const [valid, setValid] = useState(true);
 
-  const changeDate = (e) => {
-    setExpense({ ...expense, date: e.target.value });
+  const changeDate = (event) => {
+    setExpense({ ...expense, date: event.target.value });
   }
 
-  const changeLocation = (e) => {
-    setExpense({ ...expense, location: e.target.value });
+  const changeLocation = (event) => {
+    setExpense({ ...expense, location: event.target.value });
   }
 
-  const changeDescription = (e) => {
-    setExpense({ ...expense, description: e.target.value });
+  const changeDescription = (event) => {
+    setExpense({ ...expense, description: event.target.value });
   }
 
-  const changeAmount = (e) => {
-    setExpense({ ...expense, amount: e.target.value });
+  const changeAmount = (event) => {
+    setExpense({ ...expense, amount: event.target.value });
   }
 
-  const addExpense = (e) => {
-    e.preventDefault();
-    const newExpense = validateExpense();
+  const addExpense = (event) => {
+    event.preventDefault();
+    const newExpense = createExpenseObject();
     if (newExpense) {
-      props.handleSubmit(newExpense);
+      handleSubmit(newExpense);
       setExpense({
         date: '',
         location: '',
         description: '',
         amount: ''
       });
-      setValid(true);
-    } else {
-      setValid(false);
     }
   }
 
-  const validateExpense = () => {
+  const createExpenseObject = () => {
     const newAmount = Number(expense.amount);
-
-    if (newAmount) {
-      const newExpense = {
-        id: Date.now(),
-        date: expense.date,
-        location: expense.location,
-        description: expense.description,
-        amount: newAmount
-      }
-      return newExpense;
-    }
-    return false;
+    const newExpense = {
+      id: Date.now(),
+      date: expense.date,
+      location: expense.location,
+      description: expense.description,
+      amount: newAmount
+    };
+    return newExpense;
   }
 
   return (
@@ -100,7 +92,6 @@ const ExpenseForm = (props) => {
             placeholder="What did it cost?"
             handleChange={changeAmount}
             value={expense.amount}
-            valid={valid}
           />
         </Col>
         <Col className="text-end">

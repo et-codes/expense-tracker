@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Header from './components/Header';
 import ExpenseForm from './components/ExpenseForm';
@@ -8,18 +8,21 @@ import Footer from './components/Footer';
 const App = () => {
   const getExpenses = () => {
     let expensesJSON = localStorage.getItem('expenses');
+    const emptyExpenses = { expenseList: [], total: 0 };
 
-    // Delete legacy format data
-    if (JSON.parse(expensesJSON).expenses) {
+    if (!expensesJSON) {
+      return emptyExpenses;
+    }
+
+    const persistedExpenses = JSON.parse(expensesJSON);
+
+    // Delete legacy format data if it exists
+    if (persistedExpenses.expenses) {
       localStorage.clear();
-      return { expenseList: [], total: 0 };
+      return emptyExpenses;
     }
 
-    if (expensesJSON !== null) {
-      return JSON.parse(expensesJSON);
-    } else {
-      return { expenseList: [], total: 0 };
-    }
+    return persistedExpenses;
   };
 
   const [expenses, setExpenses] = useState(getExpenses());
